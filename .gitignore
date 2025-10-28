@@ -1,0 +1,20 @@
+# Tidbyt rendered files
+*.webp
+*.gif
+
+# Test directories
+test_pixlet/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# API tokens and credentials
+*.token
+.env
+
+# Temporary files
+*.tmp
+*.bak
+*~

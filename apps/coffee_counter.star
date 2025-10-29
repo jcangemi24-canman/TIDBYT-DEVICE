@@ -19,71 +19,60 @@ def main(config):
 
     for i, message in enumerate(messages):
         frame = render.Box(
-            color = "#2d1b00",  # Coffee brown background
-            child = render.Column(
-                expanded = True,
-                main_align = "space_evenly",
-                cross_align = "center",
-                children = [
-                    # Top border
-                    render.Box(
-                        width = 64,
-                        height = 1,
-                        color = "#8B4513",
-                    ),
-                    # Spacer
-                    render.Box(height = 2),
-                    # Message
-                    render.Text(
-                        content = message,
-                        color = "#FFD700",
-                        font = "tom-thumb",
-                    ),
-                    # Spacer to move cup up
-                    render.Box(height = 2),
-                    # ASCII Coffee cup with beans on sides and handle
-                    render.Column(
-                        cross_align = "center",
-                        children = [
-                            render.Text(
-                                content = "o  ___  o",
-                                color = "#FFDEAD",
-                                font = "tom-thumb",
-                            ),
-                            render.Row(
-                                main_align = "center",
-                                children = [
-                                    render.Text(
-                                        content = "o ",
-                                        color = "#5C4033",
-                                        font = "tom-thumb",
-                                    ),
-                                    render.Text(
-                                        content = "|   |",
-                                        color = "#FFDEAD",
-                                        font = "tom-thumb",
-                                    ),
-                                    render.Text(
-                                        content = "D o",
-                                        color = "#FFDEAD",
-                                        font = "tom-thumb",
-                                    ),
-                                ],
-                            ),
-                            render.Text(
-                                content = "o  \\_/  o",
-                                color = "#FFDEAD",
-                                font = "tom-thumb",
-                            ),
-                        ],
-                    ),
-                    # Bottom border
-                    render.Box(
-                        width = 64,
-                        height = 1,
-                        color = "#8B4513",
-                    ),
-                ],
+            color = "#8B4513",  # Border color
+            padding = 1,
+            child = render.Box(
+                color = "#2d1b00",  # Coffee brown background
+                padding = 2,
+                child = render.Column(
+                    expanded = True,
+                    main_align = "center",
+                    cross_align = "center",
+                    children = [
+                        # Message
+                        render.Text(
+                            content = message,
+                            color = "#FFD700",
+                            font = "tom-thumb",
+                        ),
+                        # ASCII Coffee cup with beans on sides and handle
+                        render.Column(
+                            cross_align = "center",
+                            children = [
+                                render.Text(
+                                    content = "o  ___  o",
+                                    color = "#FFDEAD",
+                                    font = "tom-thumb",
+                                ),
+                                render.Row(
+                                    main_align = "center",
+                                    children = [
+                                        render.Text(
+                                            content = "o ",
+                                            color = "#5C4033",
+                                            font = "tom-thumb",
+                                        ),
+                                        render.Text(
+                                            content = "|   |",
+                                            color = "#FFDEAD",
+                                            font = "tom-thumb",
+                                        ),
+                                        render.Text(
+                                            content = "D o",
+                                            color = "#FFDEAD",
+                                            font = "tom-thumb",
+                                        ),
+                                    ],
+                                ),
+                                render.Text(
+                                    content = "o  \\_/  o",
+                                    color = "#FFDEAD",
+                                    font = "tom-thumb",
+                                ),
+                            ],
+                        ),
+                    ],
+                ),
             ),
         )
         frames.append(frame)

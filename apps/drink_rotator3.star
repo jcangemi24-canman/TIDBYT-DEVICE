@@ -6,27 +6,22 @@ def main(config):
     drinks = [
         {
             "name": "ICED LATTE",
-            "cup": [" ___", "|o*o|", " |_|"],
             "color": "#D2B48C",
         },
         {
             "name": "COLD BREW",
-            "cup": [" ___", "|*.*|", " |_|"],
             "color": "#2F4F4F",
         },
         {
             "name": "NITRO",
-            "cup": [" ___", "|*.*|", " |_|"],
             "color": "#708090",
         },
         {
             "name": "FREDDO",
-            "cup": [" ___", "|*.*|", " |_|"],
             "color": "#5F9EA0",
         },
         {
             "name": "MARTINI",
-            "cup": ["  Y ", " /_\\", ""],
             "color": "#4B3621",
         },
     ]
@@ -36,82 +31,20 @@ def main(config):
 
     for drink in drinks:
         frame = render.Box(
-            color = "#1a0f00",
-            child = render.Box(
-                # Full border around all sides
-                width = 64,
-                height = 32,
-                color = drink["color"],
-                padding = 2,
-                child = render.Box(
-                    color = "#1a0f00",
-                    child = render.Column(
-                        expanded = True,
-                        main_align = "space_evenly",
-                        cross_align = "center",
-                        children = [
-                            # Spacer
-                            render.Box(height = 1),
-                            # Drink name
-                            render.Text(
-                                content = drink["name"],
-                                color = drink["color"],
-                                font = "tom-thumb",
-                            ),
-                            # Cup with coffee beans on the right
-                            render.Row(
-                                main_align = "center",
-                                cross_align = "center",
-                                children = [
-                                    # Cup ASCII art
-                                    render.Column(
-                                        cross_align = "center",
-                                        children = [
-                                            render.Text(
-                                                content = drink["cup"][0],
-                                                color = "#FFDEAD",
-                                                font = "tom-thumb",
-                                            ),
-                                            render.Text(
-                                                content = drink["cup"][1],
-                                                color = "#FFDEAD",
-                                                font = "tom-thumb",
-                                            ),
-                                            render.Text(
-                                                content = drink["cup"][2],
-                                                color = "#FFDEAD",
-                                                font = "tom-thumb",
-                                            ),
-                                        ],
-                                    ),
-                                    # Spacer
-                                    render.Box(width = 2),
-                                    # Coffee beans on the right
-                                    render.Column(
-                                        cross_align = "center",
-                                        children = [
-                                            render.Text(
-                                                content = "o",
-                                                color = "#5C4033",
-                                                font = "tom-thumb",
-                                            ),
-                                            render.Text(
-                                                content = "o",
-                                                color = "#5C4033",
-                                                font = "tom-thumb",
-                                            ),
-                                            render.Text(
-                                                content = "o",
-                                                color = "#5C4033",
-                                                font = "tom-thumb",
-                                            ),
-                                        ],
-                                    ),
-                                ],
-                            ),
-                        ],
+            width = 64,
+            height = 32,
+            color = "#000000",
+            child = render.Column(
+                expanded = True,
+                main_align = "center",
+                cross_align = "center",
+                children = [
+                    render.Text(
+                        content = drink["name"],
+                        color = drink["color"],
+                        font = "6x13",
                     ),
-                ),
+                ],
             ),
         )
         frames.append(frame)

@@ -2,93 +2,74 @@ load("render.star", "render")
 load("time.star", "time")
 
 def main(config):
-    # Create 4 frames for steam animation only
+    # Create 4 frames for steam animation - rising vertically with curvy motion
     steam_frames = [
-        ["~  ~  ~", " ~   ~ "],
-        [" ~ ~ ~ ", "~  ~  ~"],
-        ["  ~  ~ ", " ~ ~ ~ "],
-        [" ~  ~ ~", "  ~  ~ "],
+        [" ) ( ", "( ) "],
+        ["( ) ", " ) ( "],
+        [" ) ( ", "( ) "],
+        ["( ) ", " ) ( "],
     ]
 
-    # Build frames with only the steam animating
+    # Build frames with steam animating
     frames = []
     for steam in steam_frames:
         frame = render.Box(
-            color = "#8B4513",  # Border color
-            padding = 1,
-            child = render.Box(
-                color = "#2d1b00",
-                child = render.Row(
-                    expanded = True,
-                    main_align = "space_around",
-                    cross_align = "center",
-                    children = [
-                    # Coffee beans on left
+            width = 64,
+            height = 32,
+            color = "#000000",
+            child = render.Column(
+                expanded = True,
+                main_align = "center",
+                cross_align = "center",
+                children = [
+                    # Steam rising
                     render.Column(
                         cross_align = "center",
-                        main_align = "space_around",
                         children = [
-                            render.Text(content = "o", color = "#5C4033", font = "tom-thumb"),
-                            render.Text(content = "o", color = "#5C4033", font = "tom-thumb"),
-                            render.Text(content = "o", color = "#5C4033", font = "tom-thumb"),
-                        ],
-                    ),
-                    # Center: Steam and cup
-                    render.Column(
-                        main_align = "center",
-                        cross_align = "center",
-                        children = [
-                            # Steam animation
-                            render.Column(
-                                cross_align = "center",
-                                children = [
-                                    render.Text(
-                                        content = steam[0],
-                                        color = "#D3D3D3",
-                                        font = "tom-thumb",
-                                    ),
-                                    render.Text(
-                                        content = steam[1],
-                                        color = "#C0C0C0",
-                                        font = "tom-thumb",
-                                    ),
-                                ],
+                            render.Text(
+                                content = steam[0],
+                                color = "#C0C0C0",
+                                font = "tom-thumb",
                             ),
-                            # Coffee cup
-                            render.Column(
-                                cross_align = "center",
-                                children = [
-                                    render.Text(
-                                        content = " ___",
-                                        color = "#FFDEAD",
-                                        font = "tom-thumb",
-                                    ),
-                                    render.Text(
-                                        content = "|   |D",
-                                        color = "#FFDEAD",
-                                        font = "tom-thumb",
-                                    ),
-                                    render.Text(
-                                        content = " \\_/",
-                                        color = "#FFDEAD",
-                                        font = "tom-thumb",
-                                    ),
-                                ],
+                            render.Text(
+                                content = steam[1],
+                                color = "#D3D3D3",
+                                font = "tom-thumb",
                             ),
                         ],
                     ),
-                    # Coffee beans on right
+                    # Coffee mug with smiley
                     render.Column(
                         cross_align = "center",
-                        main_align = "space_around",
                         children = [
-                            render.Text(content = "o", color = "#5C4033", font = "tom-thumb"),
-                            render.Text(content = "o", color = "#5C4033", font = "tom-thumb"),
-                            render.Text(content = "o", color = "#5C4033", font = "tom-thumb"),
+                            render.Text(
+                                content = " _______",
+                                color = "#FFFFFF",
+                                font = "tom-thumb",
+                            ),
+                            render.Text(
+                                content = "|       |)",
+                                color = "#FFFFFF",
+                                font = "tom-thumb",
+                            ),
+                            render.Text(
+                                content = "| o   o |)",
+                                color = "#8B4513",
+                                font = "tom-thumb",
+                            ),
+                            render.Text(
+                                content = "|  \\_/  |",
+                                color = "#8B4513",
+                                font = "tom-thumb",
+                            ),
+                            render.Text(
+                                content = "|_______|",
+                                color = "#FFFFFF",
+                                font = "tom-thumb",
+                            ),
                         ],
                     ),
                 ],
-                ),
             ),
         )
         frames.append(frame)
